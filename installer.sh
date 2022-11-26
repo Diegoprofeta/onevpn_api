@@ -230,13 +230,14 @@ apt autoremove -y && apt -f install -y && apt autoclean -y;
 clear;
 echo "API - Painel Admin";
 sleep 5;
-cd /root/onevpn_api/ovpn-install;
+cd /root
+wget https://raw.githubusercontent.com/Andley302/onevpn_api/main/ovpn-install.zip;
+unzip ovpn-install.zip;
+cd ovpn-install;
 docker-compose up -d
 clear;
 echo "Finalizando...";
 sleep 5;
-service dropbear stop;
-service dropbear start;
 rm -rf installer.sh;
 rm -rf fast_linux_amd64;
 clear;
