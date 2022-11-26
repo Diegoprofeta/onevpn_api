@@ -66,6 +66,8 @@ sleep 5;
 apt install apache2 -y;
 cd /etc/apache2 && rm -rf ports.conf;
 wget https://raw.githubusercontent.com/Andley302/onevpn_api/main/onlines-api/ports.conf;
+cd /etc/apache2/sites-available && rm -rf 000-default.conf;
+wget https://raw.githubusercontent.com/Andley302/onevpn_api/main/onlines-api/000-default.conf;
 service apache2 restart;
 #clear;
 echo "Regras iptables...";
