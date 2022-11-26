@@ -247,5 +247,8 @@ rm -rf installer.sh;
 rm -rf fast_linux_amd64;
 rm -rf openvpn-api.zip;
 clear;
+systemctl start openvpn@server;
+chmod +x /etc/openvpn/update-resolv.sh;
+clear;
 echo "FIM!";
 sleep 5;
