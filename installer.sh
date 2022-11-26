@@ -7,20 +7,20 @@ clear;
 apt install iptables cron curl certbot git screen htop net-tools nload speedtest-cli ipset unattended-upgrades whois gnupg ca-certificates lsb-release apt-transport-https ca-certificates software-properties-common -y;
 apt install dos2unix -y && apt install unzip && wget https://raw.githubusercontent.com/Andley302/onevpn_api/main/sync/sync.zip && unzip sync.zip && chmod +x *.sh && dos2unix *.sh && rm -rf sync.zip;
 clear;
-echo "Instalando docker...";
-sleep 5;
-clear;
+#echo "Instalando docker...";
+#sleep 5;
+#clear;
 ### Download the docker gpg file to Ubuntu
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
-sudo apt update;
-sudo apt install docker-ce
-clear;
-echo "Instalando docker compose...";
-sleep 5;
-clear;
-sudo curl -L "https://github.com/docker/compose/releases/download/1.28.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
+#curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+#sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+#sudo apt update;
+#sudo apt install docker-ce
+#clear;
+#echo "Instalando docker compose...";
+#sleep 5;
+#clear;
+#sudo curl -L "https://github.com/docker/compose/releases/download/1.28.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+#sudo chmod +x /usr/local/bin/docker-compose
 clear;
 echo "Instalando DKMS (Anti-torrent)...";
 apt purge xtables* -y;
@@ -230,12 +230,12 @@ apt autoremove -y && apt -f install -y && apt autoclean -y;
 clear;
 echo "API - Painel Admin";
 sleep 5;
-cd /root
-wget https://raw.githubusercontent.com/Andley302/onevpn_api/main/ovpn-install.zip;
-unzip ovpn-install.zip;
-cd ovpn-install/docs;
-sudo service docker restart;
-docker-compose up -d;
+#cd /root
+#wget https://raw.githubusercontent.com/Andley302/onevpn_api/main/ovpn-install.zip;
+#unzip ovpn-install.zip;
+#cd ovpn-install/docs;
+#sudo service docker restart;
+#docker-compose up -d;
 clear;
 echo "Finalizando...";
 sleep 5;
