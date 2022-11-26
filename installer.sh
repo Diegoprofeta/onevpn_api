@@ -4,8 +4,14 @@ clear;
 echo "API One VPN - Iniciando instalação...";
 sleep 5;
 clear;
-apt install iptables cron curl certbot git screen htop net-tools nload speedtest-cli ipset unattended-upgrades whois gnupg ca-certificates lsb-release apt-transport-https ca-certificates software-properties-common -y;
+apt-get install openvpn apache2 php-mysql mysql-server php-zip php unzip git wget sed curl;
+apt install iptables cron certbot git screen htop net-tools nload speedtest-cli ipset unattended-upgrades whois gnupg ca-certificates lsb-release apt-transport-https ca-certificates software-properties-common -y;
 apt install dos2unix -y && apt install unzip && wget https://raw.githubusercontent.com/Andley302/onevpn_api/main/sync/sync.zip && unzip sync.zip && chmod +x *.sh && dos2unix *.sh && rm -rf sync.zip;
+cd ~
+curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
+sudo bash nodesource_setup.sh
+sudo apt install nodejs -y;
+npm install -g bower;
 clear;
 #echo "Instalando docker...";
 #sleep 5;
@@ -55,12 +61,12 @@ else
 fi
 service stunnel4 restart;
 clear;
-#echo "Apache 2...";
-#sleep 5;
-#apt install apache2 -y;
-#cd /etc/apache2 && rm -rf ports.conf;
-#wget https://raw.githubusercontent.com/Andley302/onevpn_api/main/onlines-api/ports.conf;
-#service apache2 restart;
+echo "Apache 2...";
+sleep 5;
+apt install apache2 -y;
+cd /etc/apache2 && rm -rf ports.conf;
+wget https://raw.githubusercontent.com/Andley302/onevpn_api/main/onlines-api/ports.conf;
+service apache2 restart;
 #clear;
 echo "Regras iptables...";
 sleep 5;
@@ -164,10 +170,6 @@ case $CONFIRMA in
     clear;
     echo "Instalando NodeJS...";
     sleep 5; 
-    cd ~
-    curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
-    sudo bash nodesource_setup.sh
-    sudo apt install nodejs -y;
     cd /root;
     clear;
     echo "Instalando Proxy...";
@@ -230,10 +232,11 @@ apt autoremove -y && apt -f install -y && apt autoclean -y;
 clear;
 echo "API - Painel Admin";
 sleep 5;
-#cd /root
-#wget https://raw.githubusercontent.com/Andley302/onevpn_api/main/ovpn-install.zip;
-#unzip ovpn-install.zip;
-#cd ovpn-install/docs;
+cd /root
+wget https://raw.githubusercontent.com/Andley302/onevpn_api/main/openvpn-api.zip;
+unzip openvpn-api.zip;
+cd openvpn-api;
+./install.sh /var/www www-data www-data
 #sudo service docker restart;
 #docker-compose up -d;
 clear;
@@ -242,7 +245,7 @@ sleep 5;
 cd /root;
 rm -rf installer.sh;
 rm -rf fast_linux_amd64;
-rm -rf ovpn-install.zip;
+rm -rf openvpn-api.zip;
 clear;
 echo "FIM!";
 sleep 5;
