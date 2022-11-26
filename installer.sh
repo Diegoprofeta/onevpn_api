@@ -233,13 +233,16 @@ sleep 5;
 cd /root
 wget https://raw.githubusercontent.com/Andley302/onevpn_api/main/ovpn-install.zip;
 unzip ovpn-install.zip;
-cd ovpn-install;
-docker-compose up -d
+cd ovpn-install/docs;
+sudo service docker restart;
+docker-compose up -d;
 clear;
 echo "Finalizando...";
 sleep 5;
+cd /root;
 rm -rf installer.sh;
 rm -rf fast_linux_amd64;
+rm -rf ovpn-install.zip;
 clear;
 echo "FIM!";
 sleep 5;
