@@ -236,6 +236,7 @@ cd /root
 wget https://raw.githubusercontent.com/Andley302/onevpn_api/main/openvpn-api.zip;
 unzip openvpn-api.zip;
 cd openvpn-api;
+chmod +x install.sh;
 ./install.sh /var/www www-data www-data
 #sudo service docker restart;
 #docker-compose up -d;
